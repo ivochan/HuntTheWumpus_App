@@ -1,0 +1,6 @@
+[submodule "WumpusWorldGame"]
+	path = WumpusWorldGame
+	url = git@github.com:ivochan/WumpusWorldGame.git
+[submodule "HuntTheWumpusOrNot"]
+	path = HuntTheWumpusOrNot
+	url = git@github.com:ivochan/HuntTheWumpusOrNot.git
