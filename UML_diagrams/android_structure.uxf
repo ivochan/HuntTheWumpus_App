@@ -1,0 +1,725 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>5</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>415</x>
+      <y>145</y>
+      <w>165</w>
+      <h>205</h>
+    </coordinates>
+    <panel_attributes>appLaunch::MainActivity
+--
+-score_file_path: String
+-score_file_name: String
+-current_score_file_name: String
+-current_score_file_path: String
+-typeWriter: TypeWriter
+-delay = 60: int
+-mp: MediaPlayer
+-button_hero: Button
+-button_wumpus: Button
+-hero_game: Intent
+-wumpus_game: Intent
+--
+#onCreate(Bundle savedInstanceState): void
++onStart(): void
+#onResume(): void
+#onPause(): void
++onStop(): void
++onDestroy(): void
++onRestart(): void
+#animatedText(TypeWriter tw): void
++onCreateOptionsMenu(Menu menu): boolean
++onOptionsItemSelected(MenuItem item): boolean
++getScoreFilePath(): String
++getCurrentScoreFilePath(): String
+
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>650</x>
+      <y>270</y>
+      <w>170</w>
+      <h>265</h>
+    </coordinates>
+    <panel_attributes>gameActivities::WumpusSide
+--
+-starterIntent: Intent
+-sharedPreferences: SharedPreferences
+-player_name: String
+-mp: MediaPlayer
+-gm: GameMap
+-em: GameMap
+-score: Score
+-grid: GridView
+-adapter: GridViewCustomAdapter
+-data: ArrayList&lt;String&gt;
+-game_data: ArrayList&lt;String&gt;
+-game_message: TextView
+-shots: TextView
+-score_box: TextView
+-intro_message: String
+-sensor_info: String
+-hit_button: ImageButton
+-up_button: ImageButton
+-down_button: ImageButton
+-left_button: ImageButton
+-right_button: ImageButton
+--
+#onCreate(Bundle savedInstanceState): void
++onCreateOptionsMenu(Menu menu): boolean
++onOptionsItemSelected(MenuItem item): boolean
++onStart(): void
+#onResume(): void
+#onPause(): void
++onStop(): void
++onDestroy(): void
++onRestart(): void
++onBackPressed(): void
+
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>650</x>
+      <y>0</y>
+      <w>165</w>
+      <h>265</h>
+    </coordinates>
+    <panel_attributes>gameActivities::HeroSide
+--
+-starterIntent: Intent
+-sharedPreferences: SharedPreferences
+-player_name: String
+-mp: MediaPlayer
+-gm: GameMap
+-em: GameMap
+-score: Score
+-grid: GridView
+-adapter: GridViewCustomAdapter
+-data: ArrayList&lt;String&gt;
+-game_data: ArrayList&lt;String&gt;
+-game_message: TextView
+-shots: TextView
+-score_box: TextView
+-intro_message: String
+-sensor_info: String
+-hit_button: ImageButton
+-up_button: ImageButton
+-down_button: ImageButton
+-left_button: ImageButton
+-right_button: ImageButton
+--
+#onCreate(Bundle savedInstanceState): void
++onCreateOptionsMenu(Menu menu): boolean
++onOptionsItemSelected(MenuItem item): boolean
++onStart(): void
+#onResume(): void
+#onPause(): void
++onStop(): void
++onDestroy(): void
++onRestart(): void
++onBackPressed(): void
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>575</x>
+      <y>110</y>
+      <w>85</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;180.0;150.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>575</x>
+      <y>260</y>
+      <w>85</w>
+      <h>145</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;150.0;270.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>420</x>
+      <y>115</y>
+      <w>135</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>Schermata di avvio dell'app (Launcher)
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>210</x>
+      <y>140</y>
+      <w>160</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>mainMenuItems::GameInformationActivity
+--
+-mp: MediaPlayer
+--
+#onCreate(Bundle savedInstanceState): void
+[activity methods]
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>215</x>
+      <y>210</y>
+      <w>160</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>mainMenuItems.tutorial::MainTutorialActivity
+--
+-next_button: Button
+-next_page: Intent
+--
+#onCreate(Bundle savedInstanceState): void
+[activity methods]
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>200</x>
+      <y>330</y>
+      <w>180</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>mainMenuItems.tutorial::GamePadMainTutorialActivity
+--
+-back_button: Button
+--
+[activity methods]
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>220</x>
+      <y>280</y>
+      <w>160</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>mainMenuItems.settings::GameSettingsActivity
+--
+#onCreate(Bundle savedInstanceState): void
+[activity methods]
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>410</x>
+      <y>565</y>
+      <w>230</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>mainMenuItems.settings::GameSettingsFragment
+--
+-mStartForResult&#13;: ActivityResultLauncher&lt;Intent&gt;
+&#13;--
++onCreatePreferences(Bundle, String rootKey): void
+-setPlayerName(SharedPreferences, EditTextPreference): void
+-deleteScoreData(Preference deleteGameData): void
+-importScoreData(Preference importGameData): void
+-exportScoreData(Preference exportGameData): void
+-sendFeedbackRequest(Preference sendFeedback): void
+-configEmail(Intent intent, String screen_inch): void
+-getScreenSize(): String
+-settingDialog(AlertDialog.Builder, CharSequence, CharSequence): void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>425</x>
+      <y>365</y>
+      <w>195</w>
+      <h>185</h>
+    </coordinates>
+    <panel_attributes>mainMenuItems.score::RankActivity
+--
+-mp: MediaPlayer
+-record_share_button: Button
+-best_player: String
+-highscore: String
+-score_share_button: Button
+-current_score: String
+-current_player: String
+-top_ten_list: String
+-best_player_box: TextView
+-best_score_box: TextView
+-top_ten_box: TextView
+-current_player_box: TextView
+-current_score_box: TextView
+-scores: LinkedList&lt;String&gt;
+-first_score: String
+-first_score_vector: String[]
+-last_score: String
+-last_score_vector: String[]
+--
+#onCreate(Bundle savedInstanceState): void
+-settingDialog(AlertDialog.Builder, String, String, String): void
+[activity methods]
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>840</x>
+      <y>0</y>
+      <w>190</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>gameMenuItems.gameModeTutorials::HeroModeTutorial
+--
+#onCreate(Bundle savedInstanceState): void
++onStart(): void
+#onResume(): void
+#onPause(): void
++onStop(): void
++onDestroy(): void
++onRestart(): void
++onBackPressed(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>840</x>
+      <y>375</y>
+      <w>195</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>gameMenuItems.gameModeTutorials::WumpusModeTutorial
+--
+#onCreate(Bundle savedInstanceState): void
++onStart(): void
+#onResume(): void
+#onPause(): void
++onStop(): void
++onDestroy(): void
++onRestart(): void
++onBackPressed(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>810</x>
+      <y>15</y>
+      <w>40</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>60.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>815</x>
+      <y>425</y>
+      <w>35</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>50.0;10.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>840</x>
+      <y>470</y>
+      <w>275</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>gameMenuItems.automaticMode.automaticModeActivities::WumpusAutomaticMode
+--
+-sharedPreferences: SharedPreferences
+-player_name: String
+-solution_request = false: boolean
+-gameMap: GameMap
+-expMap: GameMap
+-grid: GridView
+-adapter: AutomaticModeGridViewAdapter
+-data: ArrayList&lt;String&gt;
+-game_data: ArrayList&lt;String&gt;
+-text_message: TextView
+-game_message: TextView
+-run_box: TextView
+-intro_message: String
+--
+#onCreate(Bundle savedInstanceState): void
++getSolutionRequest(): boolean
+[activity methods]
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>840</x>
+      <y>90</y>
+      <w>255</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>gameMenuItems.automaticMode.automaticModeActivities::HeroAutomaticMode
+--
+-sharedPreferences: SharedPreferences
+-player_name: String
+-solution_request = false: boolean
+-gameMap: GameMap
+-expMap: GameMap
+-grid: GridView
+-adapter: AutomaticModeGridViewAdapter
+-data: ArrayList&lt;String&gt;
+-game_data: ArrayList&lt;String&gt;
+-text_message: TextView
+-game_message: TextView
+-run_box: TextView
+-intro_message: String
+--
+#onCreate(Bundle savedInstanceState): void
++getSolutionRequest(): boolean
+[activity methods]
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1130</x>
+      <y>205</y>
+      <w>345</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>gameMenuItems.automaticMode::AutomaticModeGridViewAdapter
+--
+-game_items: ArrayList&lt;String&gt;
+-items: ArrayList&lt;String&gt;
+-currentActivity: Activity
+-inflater: LayoutInflater
+-game_mode: int
+--
++AutomaticModeGridViewAdapter(Activity activity, ArrayList&lt;String&gt; expList, ArrayList&lt;String&gt; gameList): ctor
++getCount(): int
++getItem(int position): Object
++getView(final int position, View convertView, ViewGroup parent): View
++getItemId(int position): long
+-setButtonIcon(String cell_type): int
+
+bg=light_gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>810</x>
+      <y>125</y>
+      <w>40</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>60.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>815</x>
+      <y>505</y>
+      <w>35</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>50.0;10.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1090</x>
+      <y>190</y>
+      <w>50</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>80.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1040</x>
+      <y>265</y>
+      <w>100</w>
+      <h>215</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>180.0;10.0;10.0;410.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1125</x>
+      <y>320</y>
+      <w>380</w>
+      <h>175</h>
+    </coordinates>
+    <panel_attributes>gameSession::GameController
+--
+-currentActivity: Activity
+-update_data: ArrayList&lt;String&gt;
+-victory: boolean
+--
++gamePadMove(Direction, GameMap, GameMap, TextView, TextView, TextView, Score, GridViewCustomAdapter): void
++gamePadHit(TextView): void
+-movePlayer(Direction, GameMap, GameMap, TextView, TextView, Score, GridViewCustomAdapter): void
++updateExplorationMap(GameMap gm, GameMap em): void
+-movePG(Direction move, GameMap gm, GameMap em, Score score): int
+-makeMoveInTheMap(int status, GameMap gm): String
++checkEnvironmentSensors(int[] pg_pos, GameMap gm): String
++tryToHit(Direction, GameMap, TextView, TextView, TextView, Score): void
+-firedShot(): void
++linkStart(Activity activity, GameMap gm): String
+-linkStop(boolean status): void
+-endGameSession(Score score): void
++shareGameRank(String player, String points): void
+-settingDialog(AlertDialog.Builder, String, String, String): void
+-takeScreenshot(View view): File
+-shareScreenshot(File imageFile, String player, String score): void
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1125</x>
+      <y>515</y>
+      <w>335</w>
+      <h>125</h>
+    </coordinates>
+    <panel_attributes>gameSession::GridViewCustomAdapter
+--
+-game_items: ArrayList&lt;String&gt;
+-items: ArrayList&lt;String&gt;
+-mActivity: Activity
+-inflater = null: LayoutInflater
+-game_mode = 0: int
+--
++GridViewCustomAdapter(Activity activity, ArrayList&lt;String&gt; expList, ArrayList&lt;String&gt; gameList): ctor
++getCount(): int
++getItem(int position): Object
++getView(final int position, View convertView, ViewGroup parent): View
++getItemId(int position): long
+-setButtonIcon(String cell_type): int
++getCurrentActivity(): Activity
++swapItems(ArrayList&lt;String&gt; expList): void
+
+bg=light_gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1215</x>
+      <y>490</y>
+      <w>15</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>810</x>
+      <y>235</y>
+      <w>325</w>
+      <h>155</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>630.0;290.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>815</x>
+      <y>290</y>
+      <w>320</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>620.0;250.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>365</x>
+      <y>160</y>
+      <w>60</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>370</x>
+      <y>205</y>
+      <w>55</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;50.0;90.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>375</x>
+      <y>270</y>
+      <w>50</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;50.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>495</x>
+      <y>345</y>
+      <w>15</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>220</x>
+      <y>425</y>
+      <w>170</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>services::TypeWriter
+--
+-mText: CharSequence
+-mIndex: int
+-mDelay = 150: long
+-mHandler = new Handler(): Handler
+-characterAdder = new Runnable() {&#13;
+--
++TypeWriter(Context context): ctor
++TypeWriter(Context context, AttributeSet attrs): ctor
++animateText(CharSequence txt): void
++setCharacterDelay(long m): void
+
+
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>225</x>
+      <y>520</y>
+      <w>160</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>services::Utility
+--
++SUPPORT_EMAIL: String
+-REQUEST_EXTERNAL_STORAGE: int
+-PERMISSION_STORAGE: String[]
+--
++showLoadingScreen(Activity, LayoutInflater): void
++showSolvingScreen(Activity, LayoutInflater): void
++musicPlaying(MediaPlayer, Activity): void
++collectDeviceInfo(String screen_size): String
+-getMemoryCapacity(): String
++byteConversion(long size): String
++floatForm(double d): String
++getTotalRAM(): String
++storagePermissionGranted(Activity): boolean
++requestStoragePermission(Activity): void
+
+bg=dark_gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>375</x>
+      <y>300</y>
+      <w>50</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>375</x>
+      <y>330</y>
+      <w>50</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;190.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>305</x>
+      <y>395</y>
+      <w>70</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>classi di servizio
+
+bg=dark_gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>515</x>
+      <y>545</y>
+      <w>15</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>

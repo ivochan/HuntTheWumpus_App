@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <help_text>game.sessions.controller</help_text>
+  <zoom_level>6</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>150</y>
+      <w>168</w>
+      <h>156</h>
+    </coordinates>
+    <panel_attributes>game.session.configuration::Starter
+--
+-file_name: String
+-file_path: String
+-input: Scanner
+-game_start: boolean
++trad_mex: HashMap&lt;CellStatus, String&gt;
+-pg_move: Direction
+-walk: boolean
+-try_to_hit: boolean
+-chance_to_hit: boolean
+-shot_dir: Direction
+--
++chooseGameMode(): void
++chooseMove(): void
++chooseDirection(): void
+
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>648</x>
+      <y>12</y>
+      <w>168</w>
+      <h>114</h>
+    </coordinates>
+    <panel_attributes>game.session.configuration::GameSession
+--
+--
+-gm: GameMap
+-em: GameMap
+-player_name: String
+-score: Score
+-score_file: String
+--
++start(): void
++play(): void
++end(): void
++getCurrentScore(): Score
+
+bg=light_gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>210</x>
+      <y>204</y>
+      <w>210</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>game.session.configuration::AutomaticGameSession
+--
+-gm: GameMap
+-em: GameMap
+-run_path: LinkedList&lt;Cell&gt;
+--
++start(): void
++play(): void
++end(): void
+
+bg=light_gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>378</y>
+      <w>240</w>
+      <h>174</h>
+    </coordinates>
+    <panel_attributes>game.session.score::Score
+--
++WIN = 100: int
++TRAP = -50: int
++DEAD = -100: int
++STEP = -1: int
++HIT = 50: int
+-nickname: String
+-date: Date
+-sdf: SimpleDateFormat
+-score_value: Integer
+-move_count: int
+--
++Score(Integer score_value, String nickname, Date date): ctor
++getNickname(): String
++setNickname(String nickname): void
++printScore(): String
++updateScore(CellStatus cs): void
++hitScore(): void
+
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>252</x>
+      <y>474</y>
+      <w>162</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>game.session.score::ScoreComparator
+--
+--
++compare(Score o1, Score o2): int
+
+
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>480</x>
+      <y>396</y>
+      <w>258</w>
+      <h>156</h>
+    </coordinates>
+    <panel_attributes>game.session.score::ScoreUtility
+--
+-sdf: SimpleDateFormat
+--
++createScoreFile(String path): void
++writeScoreFile(String path, String score): void
++readScoreFile(String path): void
++deleteScoreFile(String path): void
++saveScore(String path, String score): void
++scoreFileAnalysis(String path, TreeMap&lt;Score, String&gt; map): void
++updateScoreFile(String path): void
++extractScoreData(String path, LinkedList&lt;String&gt; score_list): void
++scoreLineAnalysis(String score_line): String[]
++scoreFileCheck(String path): boolean
++extractCurrentScoreData(String path): String
++saveCurrentScore(String path, String current_score): void
+
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>756</x>
+      <y>276</y>
+      <w>264</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>game.session.controller::Controller
+--
++movePG(Direction move, GameMap gm, GameMap ge): int
++makeMove(int status, GameMap gm, GameMap em): void
+-checkEnvironment(int[] pg_pos, GameMap gm): void
++findCell(Direction move, int[] pg_pos): int[]
++checkCell(int[] cell_pos, GameMap gm): boolean
++hitEnemy(Direction dir, GameMap gm): void
++searchForEnemy(int i, int j, Direction dir, GameMap gm): boolean
++resetEnemySensor(GameMap gm): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>0</x>
+      <y>318</y>
+      <w>174</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>Inizializzazione della sessione di gioco:
+-scelta del personaggio: Eroe o Wumpus
+-scelta della mofalità: interattiva o automaica
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>30</y>
+      <w>168</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>game.session.start::LinkStart
+--
+-input: Scanner
+-command: char
+-player_name: String
+-human: boolean
+--
++main(String[] args): void
++getPlayerName(): String
++isHumanMode(): boolean
+
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>0</x>
+      <y>0</y>
+      <w>132</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>Classe di esecuzione del gioco,
+interagisce con l'utente
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>408</x>
+      <y>486</y>
+      <w>84</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>234</x>
+      <y>18</y>
+      <w>174</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>game.player::Player
+--
+-input: Scanner
+--
++humanMode(): void
++chooseType(): boolean
++automaticMode(): void
+
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>162</x>
+      <y>54</y>
+      <w>84</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>120.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>162</x>
+      <y>72</y>
+      <w>498</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;180.0;810.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>414</x>
+      <y>222</y>
+      <w>60</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>80.0;10.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>402</x>
+      <y>24</y>
+      <w>258</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;50.0;410.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>462</x>
+      <y>150</y>
+      <w>360</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>game.automatic_player::AutomaticPlayer
+--
+-cur_pg_pos: int[]
+-chance_to_hit = 1: int
+--
++solveGame(GameMap gm, GameMap em, LinkedList&lt;Cell&gt; run_path): int
+-findAdjacentCells(LinkedList&lt;Cell&gt; list, GameMap em, Cell c): void
+-findCoveredCells(LinkedList&lt;Cell&gt; list, GameMap em, LinkedList&lt;Cell&gt; adjacent_cells): void
+-findFaceUpAdjacentCells(LinkedList&lt;Cell&gt; list, GameMap em, Cell c): void
+-updateEnemySensor(GameMap gm, int[] enemy_indices): void
++updateExplorationMap(GameMap em): void
+
+
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>336</x>
+      <y>78</y>
+      <w>138</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;210.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>162</x>
+      <y>240</y>
+      <w>60</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>582</x>
+      <y>282</y>
+      <w>138</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enumeration&gt;&gt;
+game.session.controller::Direction
+--
+	UP, 
+	DOWN,
+	LEFT,
+	RIGHT;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>714</x>
+      <y>312</y>
+      <w>54</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>810</x>
+      <y>72</y>
+      <w>96</w>
+      <h>216</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>140.0;340.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>

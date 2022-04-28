@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>368</x>
+      <y>24</y>
+      <w>160</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+game.structure.cell::CellStatus
+--
+ENEMY_SENSE
+DANGER_SENSE
+PG
+ENEMY
+AEARD
+DANGER
+SAFE
+FORBIDDEN
+BAT
+OBSERVED
+UNKNOWN
+
+
+
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>312</x>
+      <y>48</y>
+      <w>72</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>70.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>360</x>
+      <y>264</y>
+      <w>248</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>game.structure.map::MapConfiguration
+--
+--
+-placeGameElements(GameMap gm): void
++init(GameMap gm, GameMap em): void
+-prob(int x, int max_x, int n, int max_n): double
+
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>24</x>
+      <y>288</y>
+      <w>272</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>game.structure.map::GameMap
+--
+-serialVersionUID = -5948888928665296259L: long
+-r: int
+-c: int
+-game_map: Cell[][]
+--
++GameMap(): ctor
++GameMap(int rows, int columns): ctor
++getMapCell(int i, int j): Cell
++setMapCell(int i, int j, CellStatus status): void
++cellExists(int i, int j): boolean
++getGameMap(): Cell[][]
++clear(): void
++areAdjacentCellsSafe(int i, int j): boolean
++isAccessibleCell(int i, int j): boolean
+
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>24</y>
+      <w>320</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>game.structure.cell::Cell
+--
+-serialVersionUID = -6063662208178208918L: long
+-sense_vector = new boolean[2]: boolean[]
+-status: CellStatus
+-position = { -1, -1 }: int[]
+--
++Cell(CellStatus status, boolean sense1, boolean sense2): ctor
++getCellStatus(): CellStatus
++getPosition(): int[]
++setPosition(int i, int j): void
++setSenseVectorCell(int i, boolean sense): void
++copyCellSpecs(Cell c): void
+
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>288</x>
+      <y>296</y>
+      <w>88</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;90.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>24</x>
+      <y>536</y>
+      <w>112</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>game.structure.text
+--
++GameMessages
++GameTranslations
+bg=dark_gray
+fg=black</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>728</x>
+      <y>184</y>
+      <w>272</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>game.structure.elements::GameElements
+--
+-NUMBER_OF_CELLS: int
+-STONES: int
+-AWARD: int
+-ENEMY: int
+-DANGER: int
+--
++generatingGameElements(GameMap gm): void
++getNumberOfCells(): int
++getStones(): int
++getAward(): int
++getEnemy(): int
++getDanger(): int
+
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>728</x>
+      <y>376</y>
+      <w>240</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>game.structure.elements::PlayableCharacter
+--
+-pg_position = new int[2]: int[]
+-r_index: int[]
+-c_index: int[]
+--
++placePGonCorner(GameMap gm): boolean
+-allTrials(boolean[] v_trials): boolean
++getPGposition(): int[]
++setPGposition(int[] position): void
+
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>728</x>
+      <y>64</y>
+      <w>432</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>game.structure.elements::Sensors
+--
+--
++updateSensors(GameMap gm): void
+-enemySensor(GameMap gm, int[] enemy_indices): void
+-dangerSensor(GameMap gm, int[] danger_i, int[] danger_j): void
+-setIndices(GameMap gm, int[] enemy_indices, int[] danger_i, int[] danger_j): void
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>600</x>
+      <y>264</y>
+      <w>144</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>160.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>600</x>
+      <y>336</y>
+      <w>144</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>160.0;130.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>600</x>
+      <y>80</y>
+      <w>144</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>160.0;10.0;10.0;230.0</additional_attributes>
+  </element>
+</diagram>

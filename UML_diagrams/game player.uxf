@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>10</y>
+      <w>620</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>game.automatic_player::AutomaticPlayer
+--
+-cur_pg_pos = PlayableCharacter.getPGposition(): int[]
+-chance_to_hit = 1: int
+--
++solveGame(GameMap gm, GameMap em, LinkedList&lt;Cell&gt; run_path): int
+-solvingGameFirstStrategy(int[] pre_pg_pos, int[] cur_pg_pos, GameMap gm, GameMap em, LinkedList&lt;Cell&gt; run_path): int
+-solvingGameEmergencyStrategy(int[] pre_pg_pos, int[] cur_pg_pos, GameMap gm, GameMap em, LinkedList&lt;Cell&gt; run_path): int
++printStatusMessage(int number): String
+-findAdjacentCells(LinkedList&lt;Cell&gt; list, GameMap em, Cell c): void
+-findCoveredCells(LinkedList&lt;Cell&gt; list, GameMap em, LinkedList&lt;Cell&gt; adjacent_cells): void
+-findFaceUpAdjacentCells(LinkedList&lt;Cell&gt; list, GameMap em, Cell c): void
++runPathToString(LinkedList&lt;Cell&gt; run_path): String
+-updateEnemySensor(GameMap gm, int[] enemy_indices): void
++updateExplorationMap(GameMap em): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>680</x>
+      <y>10</y>
+      <w>300</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>game.automatic_player::AutomaticPlayerTest
+--
+--
++main(String[] args): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>300</y>
+      <w>280</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>game.player::Player
+--
+-input = new Scanner(System.in): Scanner
+--
++humanMode(): void
++chooseType(): boolean
++automaticMode(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
